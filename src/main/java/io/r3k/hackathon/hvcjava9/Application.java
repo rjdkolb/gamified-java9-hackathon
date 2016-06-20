@@ -1,6 +1,7 @@
 package io.r3k.hackathon.hvcjava9;
 
 import io.undertow.Undertow;
+import io.undertow.UndertowOptions;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.undertow.UndertowBuilderCustomizer;
@@ -16,6 +17,7 @@ public class Application {
         factory.addBuilderCustomizers(new UndertowBuilderCustomizer() {
             @Override
             public void customize(Undertow.Builder builder) {
+                builder.setServerOption(UndertowOptions.ENABLE_HTTP2, true);
                 builder.addHttpListener(8080, "0.0.0.0");
             }
         });
@@ -28,3 +30,4 @@ public class Application {
     }
 
 }
+
