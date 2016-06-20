@@ -12,7 +12,7 @@ Steps for testing
 - Hackaton people login to http://localhost:8080/ and start the challenge.
 
 For proper use
-- Issue your domain a certificate from letencypt.
+- Issue your domain a certificate from letsencrypt.
 - Update application.properties.
 - Add firewall rules to redirect 8080 -> 80 and 8443 -> 443.
 - shell in a box is required for the JEP 286 demo. It's nice to show even if the JEP does not make Java 9.
@@ -20,3 +20,4 @@ For proper use
 
 Notes
 - It's 'hard coded' that users use Java 9 build 120-129, but update the unit test io.r3k.hackathon.hvcjava9.controllers.SubmitControllerTest if that is not the case.
+- Importing the letsencrypt CA may not be needed in future. https://bugs.openjdk.java.net/browse/JDK-8154790
